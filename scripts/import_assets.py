@@ -4,14 +4,7 @@ from pathlib import Path
 import pandas as pd
 import chardet
 from pyproj import Transformer
-from dotenv import load_dotenv
-from supabase import create_client, Client
-
-#loading .env variables
-load_dotenv()
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
-supabase: Client = create_client(url, key)
+from db_client import supabase
 
 def process_and_upload_assets():
     print("Loading statis asset data...")
